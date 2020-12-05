@@ -1,3 +1,6 @@
+////////////////////////////////////////////////////////////////////
+// [DAMIANO] [BERTOLDO] [1193081]
+////////////////////////////////////////////////////////////////////
 package it.unipd.tos;
 
 /**
@@ -6,8 +9,8 @@ package it.unipd.tos;
  */
 public class App 
 {
-    public static void main( String[] args )
+    public int sum(int a, int b)
     {
-        System.out.println( "Hello World!" );
+        return a+b;
     }
 }
