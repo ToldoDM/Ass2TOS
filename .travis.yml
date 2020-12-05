@@ -4,9 +4,9 @@ language: java
 sudo: required
 jdk: openjdk11
 cache:
-directories:
-    - $HOME/.m2
-script:
-    - mvn clean install
-after_success:
-    - mvn clean test jacoco:report coveralls:report
+  directories:
+      - $HOME/.m2
+  script:
+      - mvn clean install
+  after_success:
+      - mvn clean test jacoco:report coveralls:report
