@@ -5,39 +5,56 @@ package it.unipd.tos.business;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class UserTest {
 	
 	private User testUser = new User("Damiano", "Bertoldo", 24);
 	
-	@Test (expected = IllegalArgumentException.class)
+	@Rule
+    public ExpectedException expectedEx = ExpectedException.none();
+	
+	@Test
 	public void testUserNameNull() {
+	    expectedEx.expect(IllegalArgumentException.class);
+        expectedEx.expectMessage("Nome non valido");
 		new User(null, "Bertoldo", 24);
 	}
 	
-	@Test (expected = IllegalArgumentException.class)
+	@Test
 	public void testUserNameEmpty() {
+	    expectedEx.expect(IllegalArgumentException.class);
+        expectedEx.expectMessage("Nome vuoto");
 		new User("", "Bertoldo", 24);
 	}
 		
-	@Test (expected = IllegalArgumentException.class)
+	@Test
 	public void testUserSurnameNull() {
+	    expectedEx.expect(IllegalArgumentException.class);
+        expectedEx.expectMessage("Cognome non valido");
 		new User("Damiano", null, 24);
 	}
 	
-	@Test (expected = IllegalArgumentException.class)
+	@Test
 	public void testUserSurnameEmpty() {
+	    expectedEx.expect(IllegalArgumentException.class);
+        expectedEx.expectMessage("Cognome vuoto");
 		new User("Damiano", "", 24);
 	}
 		
-	@Test (expected = IllegalArgumentException.class)
+	@Test
 	public void testUserUserAgeLess() {
+	    expectedEx.expect(IllegalArgumentException.class);
+        expectedEx.expectMessage("eta non valida");
 		new User("Damiano", "Bertoldo", 0);
 	}
 	
-	@Test (expected = IllegalArgumentException.class)
+	@Test
 	public void testUserUserAgeMore() {
+	    expectedEx.expect(IllegalArgumentException.class);
+        expectedEx.expectMessage("eta non valida");
 		new User("Damiano", "Bertoldo", 121);
 	}
 

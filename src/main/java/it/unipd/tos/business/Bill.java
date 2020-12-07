@@ -24,6 +24,9 @@ public class Bill implements TakeAwayBill {
         if (user == null) {
             throw new TakeAwayBillException("Utente non valido");
         }
+        if(itemsOrdered.size() > 30) {
+            throw new TakeAwayBillException("Max 30 elementi per ordine");
+        }
 
         double tot = 0;
         int countGelati = 0;

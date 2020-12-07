@@ -23,7 +23,7 @@ public class User {
             throw new IllegalArgumentException("Cognome vuoto");
         }
         if (userAge <= 0 || userAge > 120) {
-            throw new IllegalArgumentException("Data di nascita non valida");
+            throw new IllegalArgumentException("eta non valida");
         }
 
         this.name = name;
