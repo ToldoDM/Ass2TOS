@@ -3,7 +3,9 @@
 <module name="Checker">
     <module name="TreeWalker">
         <module name="BooleanExpressionComplexity"/>
-        <module name="CyclomaticComplexity"/>
+        <module name="CyclomaticComplexity">
+	    <property name="max" value="20"/>
+	</module>
         <module name="MethodLength">
             <property name="tokens" value="METHOD_DEF"/>
             <property name="max" value="60"/>
