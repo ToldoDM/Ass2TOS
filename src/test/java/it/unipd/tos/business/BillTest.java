@@ -60,7 +60,7 @@ public class BillTest {
         itemsOrdered.add(new MenuItem("Vaniglia", 10, ItemType.Gelati));
         itemsOrdered.add(new MenuItem("Vaniglia", 20, ItemType.Gelati));
 
-        assertEquals(58, bill.getOrderPrice(itemsOrdered, testUser), 0);
+        assertEquals(58.5, bill.getOrderPrice(itemsOrdered, testUser), 0);
     }  
     
     
