@@ -27,17 +27,24 @@ public class Bill implements TakeAwayBill {
 
         double tot = 0;
         int countGelati = 0;
+        int countBudini = 0;
+        double totGelBud = 0;
         MenuItem minMenuItem = new MenuItem("foo", 100000, ItemType.Gelati);
 
         for (MenuItem menuItem : itemsOrdered) {
             if (menuItem.getItemType().equals(ItemType.Gelati)) {
                 countGelati++;
+                totGelBud += menuItem.getPrice();
                 if (menuItem.getPrice() < minMenuItem.getPrice()) {
                     minMenuItem = menuItem;
                 }
+            } else if (menuItem.getItemType().equals(ItemType.Budini)) {
+                countBudini++;
+                totGelBud += menuItem.getPrice();
             }
         }
 
+        //Sconto50 se ci sono piu di 5 gelati
         for (MenuItem menuItem : itemsOrdered) {
             if (countGelati > 5 && menuItem.equals(minMenuItem)) {
                 tot += menuItem.getPrice() / 2;
@@ -45,6 +52,12 @@ public class Bill implements TakeAwayBill {
                 tot += menuItem.getPrice();
             }
         }
+
+        //sconto10 se la somma tra gelati e budini supera 50
+        if (totGelBud > 50) {
+            tot = tot - (tot * 0.1);
+        }
+
         return tot;
     }
 

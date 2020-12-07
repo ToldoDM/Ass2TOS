@@ -39,6 +39,32 @@ public class BillTest {
     }
 
     @Test
+    public void testOrderDiscount10() throws TakeAwayBillException {
+        itemsOrdered.clear();
+        itemsOrdered.add(new MenuItem("Vaniglia", 10, ItemType.Gelati));
+        itemsOrdered.add(new MenuItem("Vaniglia", 10, ItemType.Gelati));
+        itemsOrdered.add(new MenuItem("Vaniglia", 10, ItemType.Gelati));
+        itemsOrdered.add(new MenuItem("Vaniglia", 10, ItemType.Gelati));
+        itemsOrdered.add(new MenuItem("Vaniglia", 20, ItemType.Gelati));
+
+        assertEquals(54, bill.getOrderPrice(itemsOrdered, testUser), 0);
+    }  
+    
+    @Test
+    public void testOrderDiscount10and50() throws TakeAwayBillException {
+        itemsOrdered.clear();
+        itemsOrdered.add(new MenuItem("Vaniglia", 10, ItemType.Gelati));
+        itemsOrdered.add(new MenuItem("Vaniglia", 10, ItemType.Gelati));
+        itemsOrdered.add(new MenuItem("Vaniglia", 10, ItemType.Gelati));
+        itemsOrdered.add(new MenuItem("Vaniglia", 10, ItemType.Gelati));
+        itemsOrdered.add(new MenuItem("Vaniglia", 10, ItemType.Gelati));
+        itemsOrdered.add(new MenuItem("Vaniglia", 20, ItemType.Gelati));
+
+        assertEquals(58, bill.getOrderPrice(itemsOrdered, testUser), 0);
+    }  
+    
+    
+    @Test
     public void testOrderDiscount50() throws TakeAwayBillException {
         itemsOrdered.clear();
         itemsOrdered.add(new MenuItem("Vaniglia", 5, ItemType.Gelati));
@@ -46,9 +72,9 @@ public class BillTest {
         itemsOrdered.add(new MenuItem("Vaniglia", 5, ItemType.Gelati));
         itemsOrdered.add(new MenuItem("Vaniglia", 10, ItemType.Gelati));
         itemsOrdered.add(new MenuItem("Vaniglia", 2.5, ItemType.Gelati));
-        itemsOrdered.add(new MenuItem("Vaniglia", 50, ItemType.Gelati));
+        itemsOrdered.add(new MenuItem("Vaniglia", 20, ItemType.Gelati));
 
-        assertEquals(76.25, bill.getOrderPrice(itemsOrdered, testUser), 0);
+        assertEquals(46.25, bill.getOrderPrice(itemsOrdered, testUser), 0);
     }    
 
     @Test(expected = TakeAwayBillException.class)
