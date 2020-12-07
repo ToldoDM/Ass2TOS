@@ -60,6 +60,11 @@ public class Bill implements TakeAwayBill {
         if (totGelBud > 50) {
             tot = tot - (tot * 0.1);
         }
+        
+        //se l'importo e' inferiore a 10 euro, ci aggiungo la commissione
+        if(tot < 10) {
+            tot += 0.5;
+        }
 
         return tot;
     }

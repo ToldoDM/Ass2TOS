@@ -39,6 +39,15 @@ public class BillTest {
     }
 
     @Test
+    public void testOrderLess10euro() throws TakeAwayBillException {
+        itemsOrdered.clear();
+        itemsOrdered.add(new MenuItem("Vaniglia", 2.5, ItemType.Budini));
+        itemsOrdered.add(new MenuItem("Vaniglia", 2.5, ItemType.Budini));
+        itemsOrdered.add(new MenuItem("Vaniglia", 2.5, ItemType.Budini));
+        assertEquals(8, bill.getOrderPrice(itemsOrdered, testUser), 0);
+    } 
+    
+    @Test
     public void testGetOrderPrice() throws TakeAwayBillException {
         assertEquals(12.5, bill.getOrderPrice(itemsOrdered, testUser), 0);
     }
