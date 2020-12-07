@@ -20,12 +20,7 @@ public class UserTest {
 	public void testUserNameEmpty() {
 		new User("", "Bertoldo", 24);
 	}
-	
-	@Test (expected = IllegalArgumentException.class)
-	public void testUserNameBlank() {
-		new User("     ", "Bertoldo", 24);
-	}
-	
+		
 	@Test (expected = IllegalArgumentException.class)
 	public void testUserSurnameNull() {
 		new User("Damiano", null, 24);
@@ -35,12 +30,7 @@ public class UserTest {
 	public void testUserSurnameEmpty() {
 		new User("Damiano", "", 24);
 	}
-	
-	@Test (expected = IllegalArgumentException.class)
-	public void testUserSurnameBlank() {
-		new User("Damiano", "      ", 24);
-	}
-	
+		
 	@Test (expected = IllegalArgumentException.class)
 	public void testUserUserAgeLess() {
 		new User("Damiano", "Bertoldo", 0);

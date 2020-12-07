@@ -6,6 +6,7 @@ package it.unipd.tos.business;
 import java.util.List;
 
 import it.unipd.tos.business.exception.TakeAwayBillException;
+import it.unipd.tos.model.ItemType;
 import it.unipd.tos.model.MenuItem;
 
 public class Bill implements TakeAwayBill {
@@ -25,8 +26,24 @@ public class Bill implements TakeAwayBill {
         }
 
         double tot = 0;
+        int countGelati = 0;
+        MenuItem minMenuItem = new MenuItem("foo", 100000, ItemType.Gelati);
+
         for (MenuItem menuItem : itemsOrdered) {
-            tot += menuItem.getPrice();
+            if (menuItem.getItemType().equals(ItemType.Gelati)) {
+                countGelati++;
+                if (menuItem.getPrice() < minMenuItem.getPrice()) {
+                    minMenuItem = menuItem;
+                }
+            }
+        }
+
+        for (MenuItem menuItem : itemsOrdered) {
+            if (countGelati > 5 && menuItem.equals(minMenuItem)) {
+                tot += menuItem.getPrice() / 2;
+            } else {
+                tot += menuItem.getPrice();
+            }
         }
         return tot;
     }

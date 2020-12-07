@@ -16,9 +16,6 @@ public class MenuItem {
         if (name.isEmpty()) {
             throw new IllegalArgumentException("Nome vuoto");
         }
-        if (name.isBlank()) {
-            throw new IllegalArgumentException("Nome ha solo spazi");
-        }
         if (price <= 0) {
             throw new IllegalArgumentException("Prezzo zero o negativo");
         }

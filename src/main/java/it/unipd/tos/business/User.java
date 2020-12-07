@@ -16,17 +16,11 @@ public class User {
         if (name.isEmpty()) {
             throw new IllegalArgumentException("Nome vuoto");
         }
-        if (name.isBlank()) {
-            throw new IllegalArgumentException("Nome ha solo spazi");
-        }
         if (surname == null) {
             throw new IllegalArgumentException("Cognome non valido");
         }
         if (surname.isEmpty()) {
             throw new IllegalArgumentException("Cognome vuoto");
-        }
-        if (surname.isBlank()) {
-            throw new IllegalArgumentException("Cognome ha solo spazi");
         }
         if (userAge <= 0 || userAge > 120) {
             throw new IllegalArgumentException("Data di nascita non valida");

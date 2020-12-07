@@ -22,11 +22,6 @@ public class MenuItemTest {
 	}
 	
 	@Test (expected = IllegalArgumentException.class)
-	public void testMenuItemNameBlank() {
-		new MenuItem("     ", 2.5, ItemType.Gelati);
-	}
-	
-	@Test (expected = IllegalArgumentException.class)
 	public void testMenuItemPriceLess() {
 		new MenuItem("Vaniglia", 0, ItemType.Gelati);
 	}
