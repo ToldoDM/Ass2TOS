@@ -1,16 +1,8 @@
 ////////////////////////////////////////////////////////////////////
 // [DAMIANO] [BERTOLDO] [1193081]
 ////////////////////////////////////////////////////////////////////
-package it.unipd.tos;
+package it.unipd.tos.model;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public int sum(int a, int b)
-    {
-        return a+b;
-    }
+public enum ItemType {
+    Gelati, Budini, Bevande
 }
